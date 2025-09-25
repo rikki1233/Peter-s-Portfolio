@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peter Gianni - UI/UX Designer & Cybersecurity Enthusiast</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Italianno&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="global.css">
+  <style id="sections-styles">
+/* CSS for section section:header */
+.site-header {
+  position: sticky;
+  top: 20px;
+  z-index: 1000;
+  padding: 0 24px;
+  margin-bottom: -85px; /* Overlap with hero */
+}
+.header-container {
+  max-width: 1248px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--color-border-dark);
+  backdrop-filter: blur(2px);
+  border-radius: 999px;
+  padding: 10px 32px;
+  height: 65px;
+}
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+.main-nav ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.main-nav a {
+  font-size: 16px;
+  color: var(--color-text-medium);
+  transition: color 0.3s;
+}
+.main-nav a:hover {
+  color: var(--color-primary);
+}
+/* Hamburger Menu Styles */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  position: relative;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-text-dark);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Hamburger animation states */
+.hamburger-menu.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Navigation Overlay */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(-20px);
+}
+
+.mobile-nav.active {
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+  transform: translateY(0);
+}
+
+.mobile-nav-content {
+  text-align: center;
+}
+
+.mobile-nav-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.mobile-nav-link {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.mobile-nav-link:hover {
+  color: var(--color-primary);
+  background-color: rgba(0, 128, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.mobile-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.mobile-nav-link:hover::after {
+  width: 100%;
+}
+
+/* Body scroll lock when mobile menu is open */
+body.mobile-menu-open {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    display: none;
+  }
+  
+  .hamburger-menu {
+    display: flex;
+  }
+  
+  .header-container {
+    justify-content: space-between;
+  }
+  
+  .mobile-nav {
+    display: flex;
+  }
+}
+
+/* CSS for section section:hero */
+.hero-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 900px;
+  padding-top: 85px;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+  overflow: hidden;
+}
+.hero-bg-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 1440px;
+  z-index: 0;
+}
+.hero-bg-svg {
+  width: 100%;
+  height: auto;
+  opacity: 0.7;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-title {
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 0.75;
+  margin-bottom: 21px;
+}
+.hero-subtitle {
+  font-size: 40px;
+  line-height: 0.9;
+  color: var(--color-text-medium);
+  margin-bottom: 21px;
+}
+.hero-description {
+  font-size: 24px;
+  line-height: 1.22;
+  color: var(--color-text-light);
+  max-width: 980px;
+  margin-bottom: 54px;
+}
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 32px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.btn-primary {
+  background: linear-gradient(168deg, #0080ff 0%, #4299f0 295.11%);
+  box-shadow: var(--shadow-main);
+  color: var(--color-white);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 16px 0px rgba(29, 35, 48, 0.12);
+}
+.btn-secondary {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+@media (max-width: 1024px) {
+  .hero-title { font-size: 72px; }
+  .hero-subtitle { font-size: 32px; }
+  .hero-description { font-size: 20px; }
+}
+@media (max-width: 768px) {
+  .hero-section { min-height: 700px; }
+  .hero-title { font-size: 48px; }
+  .hero-subtitle { font-size: 24px; }
+  .hero-description { font-size: 16px; }
+  .hero-buttons { flex-direction: column; width: 100%; max-width: 300px; }
+  .btn { width: 100%; }
+}
+
+/* CSS for section section:logos */
+.logos-section {
+  background-color: var(--color-bg-light);
+  padding: 60px 0;
+}
+.logos-container {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+.logos-track {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  width: fit-content;
+  animation: scroll 40s linear infinite;
+}
+.logos-track img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: all 0.3s;
+}
+.logos-track:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* CSS for section section:projects */
+.projects-section {
+  padding: 100px 0;
+  background-color: var(--color-bg-light);
+}
+.projects-grid {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.project-card {
+  background-color: var(--color-white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-main);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 8px 24px 0px rgba(29, 35, 48, 0.12);
+}
+.project-image-wrapper {
+  position: relative;
+  height: 256px;
+}
+.project-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.project-image-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: 14px;
+  padding: 2px 12px;
+  border-radius: 999px;
+}
+.project-content {
+  padding: 24px;
+}
+.project-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.project-title img {
+  transition: transform 0.3s;
+}
+.project-card:hover .project-title img {
+  transform: translateX(4px);
+}
+.project-description {
+  font-size: 16px;
+  color: var(--color-text-medium);
+  margin-bottom: 24px;
+  min-height: 78px;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.project-tags span {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+.projects-footer {
+  text-align: center;
+  margin-top: 60px;
+}
+.projects-footer p {
+  font-size: 16px;
+  color: var(--color-text-light);
+  margin-bottom: 12px;
+}
+.projects-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-description {
+    min-height: auto;
+  }
+}
+
+/* CSS for section section:about */
+.about-section {
+  padding: 100px 0;
+  background-color: var(--color-white);
+}
+.about-main-card {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background-color: var(--color-white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-main);
+  padding: 48px;
+  margin-top: 60px;
+}
+.about-main-text {
+  flex: 1;
+}
+.about-main-text h3 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.33;
+  margin-bottom: 24px;
+}
+.about-main-text p {
+  font-size: 16px;
+  line-height: 1.625;
+  color: var(--color-text-medium);
+}
+.about-main-text p:not(:last-child) {
+  margin-bottom: 20px;
+}
+.about-main-graphic {
+  flex-shrink: 0;
+}
+.graphic-outer-circle {
+  width: 256px;
+  height: 256px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1f2c47 0%, #0080ff 141.42%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.graphic-inner-circle {
+  width: 224px;
+  height: 224px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+}
+.skills-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.skill-card {
+  background-color: var(--color-white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-main);
+  padding: 32px;
+}
+.skill-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0080ff 0%, #4299f0 141.42%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.skill-card h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.skill-card p {
+  font-size: 16px;
+  color: var(--color-text-medium);
+  margin-bottom: 24px;
+  min-height: 42px;
+}
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.skill-tags span {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+  font-size: 14px;
+  padding: 4px 16px;
+  border-radius: 999px;
+}
+.stats-container {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+  border-radius: 16px;
+  padding: 48px 24px;
+  text-align: center;
+}
+.stat-number {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+.stat-label {
+  font-size: 16px;
+  color: var(--color-text-medium);
+  margin-top: 8px;
+}
+@media (max-width: 1024px) {
+  .about-main-card { flex-direction: column; }
+  .graphic-outer-circle { width: 200px; height: 200px; }
+  .graphic-inner-circle { width: 176px; height: 176px; }
+  .skills-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .stats-container { flex-direction: column; gap: 32px; }
+}
+
+/* CSS for section section:contact */
+.contact-section {
+  padding: 100px 0;
+  background-color: var(--color-bg-light);
+}
+.contact-grid {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.contact-form-card, .contact-info-card {
+  background-color: var(--color-white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-main);
+  padding: 32px;
+}
+.contact-form-card h3, .contact-info-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+.contact-form .form-group {
+  margin-bottom: 24px;
+}
+.contact-form label {
+  display: block;
+  font-size: 14px;
+  color: var(--color-text-medium);
+  margin-bottom: 8px;
+}
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 10px 13px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background-color: var(--color-white);
+  font-family: var(--font-main);
+  font-size: 14px;
+  color: var(--color-text-dark);
+}
+.contact-form input::placeholder, .contact-form textarea::placeholder {
+  color: var(--color-text-placeholder);
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 118px;
+}
+.btn-submit {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(175deg, #0080ff 0%, #4299f0 662.21%);
+  border-radius: 6px;
+  border: none;
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+.btn-submit:hover {
+  opacity: 0.9;
+}
+.contact-info-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--color-border-medium);
+  border-radius: 12px;
+  transition: background-color 0.3s;
+}
+.social-link:not(:last-child) {
+  margin-bottom: 16px;
+}
+.social-link:hover {
+  background-color: var(--color-bg-light);
+}
+.social-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  background-color: var(--color-bg-light);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.social-text {
+  display: flex;
+  flex-direction: column;
+}
+.social-platform {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+.social-handle {
+  font-size: 14px;
+  color: var(--color-text-medium);
+}
+.quick-info-item {
+  display: flex;
+  flex-direction: column;
+}
+.quick-info-item:not(:last-child) {
+  margin-bottom: 24px;
+}
+.quick-info-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 4px;
+}
+.quick-info-value {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-text-dark);
+}
+.quick-info-value-light {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-text-medium);
+}
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CSS for section section:footer */
+.site-footer {
+  background-color: var(--color-bg-dark);
+  padding: 32px 0;
+  text-align: center;
+}
+.site-footer p {
+  color: var(--color-white);
+  font-size: 14px;
+  line-height: 1.4;
+}
+.footer-credit {
+  font-family: var(--font-accent);
+  font-size: 20px;
+  color: #a70b0b; /* This color is very specific, keeping it as is */
+  margin-top: 4px;
+  opacity: 0.7;
+}
+  </style>
+  <script src="global.js" defer></script>
+  <script src="contact-handler.js" defer></script>
+  <script src="mobile-menu.js" defer></script>
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-container">
+    <a href="#" class="logo">Peter Gianni</a>
+    
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle navigation menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    
+    <!-- Desktop Navigation -->
+    <nav class="main-nav" id="main-nav">
+      <ul>
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+    
+    <!-- Mobile Navigation Overlay -->
+    <nav class="mobile-nav" id="mobile-nav">
+      <div class="mobile-nav-content">
+        <ul>
+          <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+          <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+          <li><a href="#about" class="mobile-nav-link">About</a></li>
+          <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+<section id="hero" class="hero-section">
+  <div class="hero-bg-container">
+    <img src="images/47_70.svg" alt="Abstract background shapes" class="hero-bg-svg">
+  </div>
+  <div class="container hero-content">
+    <h1 class="hero-title">Peter <span class="gradient-text">Gianni</span></h1>
+    <p class="hero-subtitle">UI/UX Designer & Cybersecurity Enthusiast</p>
+    <p class="hero-description">Crafting intuitive digital experiences with a security-first mindset. I bridge the gap between beautiful design and robust protection.</p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn btn-primary">
+        <span>View My Projects</span>
+        <img src="images/37_572.svg" alt="">
+      </a>
+      <a href="#contact" class="btn btn-secondary">
+        <span>Get In Touch</span>
+      </a>
+    </div>
+  </div>
+</section>
+<section id="logos" class="logos-section">
+  <div class="logos-container">
+    <div class="logos-track">
+      <img src="images/50fdc5357852ae7857034b67d1082dfef25be2d6.png" alt="Logo 9">
+      <img src="images/54dfd2d0d44b493cdb8b34cc6baba8103966e21c.png" alt="Logo 6">
+      <img src="images/ac320c761bcf57cab22d0bad999fe839626fda9d.png" alt="Logo 5">
+      <img src="images/122dbf2cb96e44cd17fbab241d87ab6b749ea0a6.png" alt="Logo 3">
+      <img src="images/0d65cb823d59d5f773fc7ce806dd131c99a9682d.png" alt="Logo 2">
+      <img src="images/458862e2902366c4ea22e31bcf8fcc4f693fccc3.png" alt="Logo 7">
+      <img src="images/1a5f3f714b57a7733dcf42e5c87c1987d7ad2008.png" alt="Logo 4">
+      <img src="images/7769c97098aa70e93cefa07c6f98d6ae8991970c.png" alt="Logo 8">
+      <!-- Duplicated for seamless scroll -->
+      <img src="images/50fdc5357852ae7857034b67d1082dfef25be2d6.png" alt="Logo 9">
+      <img src="images/54dfd2d0d44b493cdb8b34cc6baba8103966e21c.png" alt="Logo 6">
+      <img src="images/ac320c761bcf57cab22d0bad999fe839626fda9d.png" alt="Logo 5">
+      <img src="images/122dbf2cb96e44cd17fbab241d87ab6b749ea0a6.png" alt="Logo 3">
+      <img src="images/0d65cb823d59d5f773fc7ce806dd131c99a9682d.png" alt="Logo 2">
+      <img src="images/458862e2902366c4ea22e31bcf8fcc4f693fccc3.png" alt="Logo 7">
+      <img src="images/1a5f3f714b57a7733dcf42e5c87c1987d7ad2008.png" alt="Logo 4">
+      <img src="images/7769c97098aa70e93cefa07c6f98d6ae8991970c.png" alt="Logo 8">
+    </div>
+  </div>
+</section>
+<section id="projects" class="projects-section">
+  <div class="container">
+    <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+    <p class="section-subtitle">Explore my recent work in UI/UX design and cybersecurity, where beautiful interfaces meet robust protection.</p>
+    <div class="projects-grid">
+      <a href="Bank.html" class="project-card">
+        <!--merged image-->
+        <div class="project-image-wrapper">
+          <div class="project-image" style="background-image: url('images/71befc64c24f386bb149c90758171824ff041161.png');"></div>
+          <div class="project-image-tag">Mobile App</div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">SecureBank Mobile App <img src="images/37_585.svg" alt="arrow icon"></h3>
+          <p class="project-description">A comprehensive mobile banking application with advanced security features and intuitive user experience design.</p>
+          <div class="project-tags">
+            <span>Mobile Design</span><span>Fintech</span><span>Security</span><span>iOS</span><span>Android</span>
+          </div>
+        </div>
+      </a>
+      <a href="E-COMMERCE.html" class="project-card">
+        <!--merged image-->
+        <div class="project-image-wrapper">
+          <div class="project-image" style="background-image: url('images/499c8bf91622498989affc2837ac658e714ed89c.png');"></div>
+          <div class="project-image-tag">Web Design</div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Modern E-commerce Platform <img src="images/37_606.svg" alt="arrow icon"></h3>
+          <p class="project-description">Complete redesign of an e-commerce platform focusing on conversion optimization and user engagement.</p>
+          <div class="project-tags">
+            <span>E-commerce</span><span>Web Design</span><span>UX Research</span><span>Conversion</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="project-card">
+        <!--merged image-->
+        <div class="project-image-wrapper">
+          <div class="project-image" style="background-image: url('images/91b74f7e069c68ac153aa5e199179c2048e3f966.png');"></div>
+          <div class="project-image-tag">Dashboard</div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">MedCare Patient Portal <img src="images/37_625.svg" alt="arrow icon"></h3>
+          <p class="project-description">Patient-centered healthcare dashboard with secure data visualization and appointment management.</p>
+          <div class="project-tags">
+            <span>Healthcare</span><span>Dashboard</span><span>Data Viz</span><span>Accessibility</span>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="projects-footer">
+      <p>Want to see more of my work?</p>
+      <a href="#" class="projects-all-link">
+        <span>View All Projects on Figma</span>
+        <img src="images/37_645.svg" alt="">
+      </a>
+    </div>
+  </div>
+</section>
+<section id="about" class="about-section">
+  <div class="container">
+    <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+    <p class="section-subtitle">I'm a passionate UI/UX designer with a strong interest in cybersecurity. This combination allows me to create not just beautiful, but also secure and trustworthy digital experiences.</p>
+    
+    <div class="about-main-card">
+      <div class="about-main-text">
+        <h3>Design with Security in Mind</h3>
+        <p>With over 3 years of experience in UI/UX design and a deep understanding of cybersecurity principles, I bring a unique perspective to every project. I believe that great design should not only be beautiful and functional but also secure and privacy-conscious.</p>
+        <p>My approach combines user-centered design methodologies with security best practices, ensuring that every interface I create builds trust while delivering exceptional user experiences.</p>
+      </div>
+      <div class="about-main-graphic">
+        <div class="graphic-outer-circle">
+          <div class="graphic-inner-circle"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon-wrapper"><img src="images/39_32.svg" alt="UI/UX Icon"></div>
+        <h4>UI/UX Design</h4>
+        <p>Creating intuitive and visually appealing interfaces with user-centered design principles.</p>
+        <div class="skill-tags"><span>Figma</span><span>Adobe XD</span><span>Sketch</span><span>Principle</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon-wrapper"><img src="images/39_50.svg" alt="Cybersecurity Icon"></div>
+        <h4>Cybersecurity</h4>
+        <p>Implementing security-first design approaches and understanding digital threats.</p>
+        <div class="skill-tags"><span>Security Audits</span><span>Privacy Design</span><span>Secure Authentication</span><span>Data Protection</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon-wrapper"><img src="images/39_64.svg" alt="User Research Icon"></div>
+        <h4>User Research</h4>
+        <p>Conducting user interviews, usability testing, and data-driven design decisions.</p>
+        <div class="skill-tags"><span>User Interviews</span><span>A/B Testing</span><span>Analytics</span><span>Surveys</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon-wrapper"><img src="images/39_81.svg" alt="Prototyping Icon"></div>
+        <h4>Prototyping</h4>
+        <p>Building interactive prototypes and collaborating closely with development teams.</p>
+        <div class="skill-tags"><span>React</span><span>Framer</span><span>ProtoPie</span><span>CSS/HTML</span></div>
+      </div>
+    </div>
+
+    <div class="stats-container">
+      <div class="stat-item">
+        <div class="stat-number">30+</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">3+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Happy Clients</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="contact" class="contact-section">
+  <div class="container">
+    <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+    <p class="section-subtitle">Have a project in mind or just want to chat about design and security? I'd love to hear from you.</p>
+    <div class="contact-grid">
+      <div class="contact-form-card">
+        <h3>Send me a message</h3>
+        <form class="contact-form" id="contact-form">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell me about your project or just say hello..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">
+            <img src="images/39_124.svg" alt="">
+            <span>Send Message</span>
+          </button>
+        </form>
+      </div>
+      <div class="contact-info-stack">
+        <div class="contact-info-card">
+          <h3>Connect with me</h3>
+          <a href="#" class="social-link">
+            <div class="social-icon-wrapper"><img src="images/39_132.svg" alt="LinkedIn"></div>
+            <div class="social-text">
+              <span class="social-platform">LinkedIn</span>
+              <span class="social-handle">@Peter Gianni</span>
+            </div>
+          </a>
+          <a href="mailto:Peterchinedum708@gmail.com" class="social-link">
+            <div class="social-icon-wrapper"><img src="images/39_147.svg" alt="Email"></div>
+            <div class="social-text">
+              <span class="social-platform">Email</span>
+              <span class="social-handle">Peterchinedum708@gmail.com</span>
+            </div>
+          </a>
+        </div>
+        <div class="contact-info-card">
+          <h3>Quick Info</h3>
+          <div class="quick-info-item">
+            <span class="quick-info-label">Location</span>
+            <span class="quick-info-value">Lagos, Nigeria</span>
+          </div>
+          <div class="quick-info-item">
+            <span class="quick-info-label">Availability</span>
+            <span class="quick-info-value-light">Open for new projects</span>
+          </div>
+          <div class="quick-info-item">
+            <span class="quick-info-label">Response Time</span>
+            <span class="quick-info-value-light">Usually within 24 hours</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2024 Gianni. Designed with security and usability in mind.</p>
+    <p class="footer-credit">Tian Creative</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecureBank Mobile App Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Italianno&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="global.css">
+  <style>
+    :root {
+      --color-primary: #0080ff;
+      --color-primary-light: #4299f0;
+      --color-text-dark: #1d2330;
+      --color-text-medium: #4c5567;
+      --color-text-light: #818898;
+      --color-text-placeholder: #9ca3af;
+      --color-white: #ffffff;
+      --color-bg-light: #f9fafb;
+      --color-bg-dark: #1f2c47;
+      --color-border: #edeff2;
+      --color-border-medium: #e2e4e9;
+      --color-border-dark: #dcdfe5;
+      --font-main: 'Inter', sans-serif;
+      --font-accent: 'Italianno', cursive;
+      --shadow-main: 0px 4px 12px 0px rgba(29, 35, 48, 0.08);
+      --shadow-md: 0px 4px 12px 0px rgba(29, 35, 48, 0.08);
+      --shadow-lg: 0px 8px 24px 0px rgba(29, 35, 48, 0.12);
+      --shadow-sm: 0px 2px 8px 0px rgba(29, 35, 48, 0.06);
+      --gradient-primary: linear-gradient(135deg, #0080ff 0%, #4299f0 141.42%);
+      --gradient-secondary: linear-gradient(135deg, #0080ff 0%, #4299f0 141.42%);
+      --gradient-page: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+      --color-text-primary: #1d2330;
+      --color-text-secondary: #4c5567;
+      --color-text-tertiary: #818898;
+      --color-background-light: #f9fafb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background-color: var(--color-white);
+      color: var(--color-text-medium);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1248px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container-main {
+      max-width: 1248px;
+    }
+
+    .container-narrow {
+      max-width: 832px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: var(--gradient-page);
+      padding: 76px 0 80px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--color-primary);
+      margin-bottom: 106px;
+      text-decoration: none;
+    }
+
+    .hero-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .hero-text {
+      flex: 1;
+      max-width: 560px;
+    }
+
+    .category-tag {
+      display: inline-block;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      font-size: 14px;
+      line-height: 1;
+      padding: 4px 12px;
+      border-radius: 9999px;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--color-text-primary);
+      margin: 16px 0 0 0;
+    }
+
+    .hero-text .tagline {
+      font-size: 20px;
+      line-height: 32.5px;
+      color: var(--color-text-secondary);
+      margin-top: 16px;
+      max-width: 544px;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--color-text-tertiary);
+    }
+
+    .meta-item img {
+      width: 16px;
+      height: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--gradient-primary);
+      color: var(--color-white);
+      box-shadow: var(--shadow-md);
+      margin-top: 38px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-image {
+      flex-shrink: 0;
+      width: 552px;
+    }
+
+    .hero-image img {
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      height: auto;
+    }
+
+    /* Content Sections */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 36px;
+      color: var(--color-text-primary);
+      margin: 0;
+    }
+
+    .section-description {
+      font-size: 18px;
+      line-height: 29.25px;
+      color: var(--color-text-secondary);
+      margin: 24px 0 0;
+    }
+
+    /* Challenge Section */
+    .challenge-box {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-primary);
+      border-radius: 16px;
+      padding: 36px;
+      margin-top: 24px;
+    }
+
+    .challenge-box p, .challenge-box li {
+      font-size: 18px;
+      line-height: 29.25px;
+      color: var(--color-text-secondary);
+    }
+
+    .challenge-box p {
+      margin: 0 0 16px 0;
+    }
+
+    .challenge-box ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .challenge-box li {
+      margin-bottom: 8px;
+    }
+
+    /* Process Section */
+    .process-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .process-card {
+      background-color: var(--color-white);
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+      padding: 24px;
+    }
+
+    .process-card__header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .process-card__number {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gradient-secondary);
+      border-radius: 50%;
+      color: var(--color-white);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .process-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 28px;
+      margin: 0;
+      color: var(--color-text-primary);
+    }
+
+    .process-card p {
+      font-size: 16px;
+      line-height: 26px;
+      color: var(--color-text-secondary);
+      margin: 12px 0 0;
+    }
+
+    .process-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .tag {
+      background-color: var(--color-background-light);
+      border-radius: 9999px;
+      padding: 4px 12px;
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--color-text-tertiary);
+    }
+
+    /* Impact Section */
+    .impact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .impact-card {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 24px;
+      flex: 1 1 380px;
+    }
+
+    .impact-card p {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 28px;
+      color: var(--color-text-primary);
+      margin: 0;
+    }
+
+    /* Learnings Section */
+    .learnings-list {
+      list-style: none;
+      padding: 0;
+      margin: 28px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .learning-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 18px;
+      line-height: 29.25px;
+      color: var(--color-text-secondary);
+    }
+
+    .learning-item::before {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      flex-shrink: 0;
+      background-color: var(--color-primary);
+      border-radius: 2px;
+      margin-top: 10px;
+    }
+
+    /* CTA Section */
+    .cta-box {
+      max-width: 832px;
+      margin: 0 auto;
+      background: var(--gradient-page);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .cta-box h3 {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32px;
+      margin: 0;
+      color: var(--color-text-primary);
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .btn-outline {
+      border: 2px solid var(--color-primary);
+      color: var(--color-primary);
+      background-color: var(--color-white);
+      padding: 6px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    .btn-outline:hover {
+      background-color: #f0f8ff;
+    }
+
+    .cta-primary {
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-weight: 500;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    .footer-credit {
+      font-family: var(--font-accent);
+      font-size: 20px;
+      line-height: 28px;
+      color: #a70b0b;
+      margin: 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .hero-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .hero-meta {
+        justify-content: center;
+      }
+      
+      .hero-image {
+        width: 100%;
+        max-width: 552px;
+        margin-top: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 40px 0;
+      }
+      
+      .back-link {
+        margin-bottom: 60px;
+      }
+      
+      .hero-text h1 {
+        font-size: 36px;
+      }
+      
+      .hero-text .tagline {
+        font-size: 18px;
+      }
+      
+      .section {
+        padding: 60px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section id="section-hero" class="hero-section">
+    <div class="container container-main">
+      <a href="index.html#projects" class="back-link">
+        <img src="images/47_95.svg" alt="Back arrow">
+        <span>Back to Projects</span>
+      </a>
+      <div class="hero-content">
+        <div class="hero-text">
+          <span class="category-tag">Mobile App Design</span>
+          <h1>SecureBank Mobile App</h1>
+          <p class="tagline">Revolutionizing Mobile Banking with Security-First Design</p>
+          <div class="hero-meta">
+            <div class="meta-item">
+              <img src="images/47_103.svg" alt="Duration icon">
+              <span>2 months</span>
+            </div>
+            <div class="meta-item">
+              <img src="images/47_109.svg" alt="Team size icon">
+              <span>1 Person</span>
+            </div>
+            <div class="meta-item">
+              <img src="images/47_115.svg" alt="Year icon">
+              <span>2024</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary">
+            <span>View Project</span>
+            <img src="images/57_182.svg" alt="Arrow icon">
+          </a>
+        </div>
+        <div class="hero-image">
+          <img src="images/71befc64c24f386bb149c90758171824ff041161.png" alt="SecureBank Mobile App interface">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Overview Section -->
+  <section id="section-overview" class="section">
+    <div class="container container-narrow">
+      <h2 class="section-title">Project Overview</h2>
+      <p class="section-description">This project focused on creating a concept banking app for Nigerian Gen Z that reimagines how young people interact with money. The goal was to design a modern, relatable, and secure digital banking experience that resonates with their lifestyle while addressing the limitations of existing solutions.</p>
+    </div>
+  </section>
+
+  <!-- The Challenge Section -->
+  <section id="section-challenge" class="section">
+    <div class="container container-narrow">
+      <h2 class="section-title">The Challenge</h2>
+      <div class="challenge-box">
+        <p>Current banking apps in Nigeria often feel outdated, complicated, and unrelatable to Gen Z users. Pain points include:</p>
+        <ul>
+          <li>Overly corporate design that doesn't appeal to younger audiences.</li>
+          <li>Confusing navigation and cluttered interfaces.</li>
+          <li>Lack of engaging financial tools tailored to young people.</li>
+        </ul>
+        <p>Gen Z wants speed, simplicity, and personalization—and existing apps are failing to deliver that.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Design Process Section -->
+  <section id="section-process" class="section">
+    <div class="container container-narrow">
+      <h2 class="section-title">Design Process</h2>
+      <div class="process-list">
+        <article class="process-card">
+          <header class="process-card__header">
+            <div class="process-card__number">1</div>
+            <h3>Research & Discovery</h3>
+          </header>
+          <p>Gathered insights from Gen Z peers, studied fintech apps, and created user personas (students, early-career professionals, side-hustlers).</p>
+          <div class="process-card__tags">
+            <span class="tag">User Personas</span>
+            <span class="tag">Journey Maps</span>
+            <span class="tag">Security Assessment</span>
+            <span class="tag">Competitive Analysis</span>
+          </div>
+        </article>
+        <article class="process-card">
+          <header class="process-card__header">
+            <div class="process-card__number">2</div>
+            <h3>Ideation & Wireframing</h3>
+          </header>
+          <p>Designed simple user flows for onboarding, transfers, and savings, focusing on quick access and "ajo" group saving.</p>
+          <div class="process-card__tags">
+            <span class="tag">User Flows</span>
+            <span class="tag">Wireframes</span>
+            <span class="tag">Security Flow Diagrams</span>
+            <span class="tag">Information Architecture</span>
+          </div>
+        </article>
+        <article class="process-card">
+          <header class="process-card__header">
+            <div class="process-card__number">3</div>
+            <h3>Prototyping & Testing</h3>
+          </header>
+          <p>Built Figma prototypes and collected peer feedback to improve usability and design.</p>
+          <div class="process-card__tags">
+            <span class="tag">Interactive Prototypes</span>
+            <span class="tag">Usability Test Results</span>
+            <span class="tag">Design System</span>
+            <span class="tag">Security Guidelines</span>
+          </div>
+        </article>
+        <article class="process-card">
+          <header class="process-card__header">
+            <div class="process-card__number">4</div>
+            <h3>Final Design & Handoff</h3>
+          </header>
+          <p>Created a bold, playful design system and documented components and flows for a polished concept.</p>
+          <div class="process-card__tags">
+            <span class="tag">Final UI Designs</span>
+            <span class="tag">Developer Handoff</span>
+            <span class="tag">Security Documentation</span>
+            <span class="tag">Design Tokens</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Solution Section -->
+  <section id="section-solution" class="section">
+    <div class="container container-narrow">
+      <h2 class="section-title">The Solution</h2>
+      <p class="section-description">A secure, playful, and social banking app designed to make money management simple and engaging for Nigerian Gen Z.</p>
+    </div>
+  </section>
+
+  <!-- Impact & Results Section -->
+  <section id="section-impact" class="section">
+    <div class="container container-narrow">
+      <h2 class="section-title">Impact & Results</h2>
+      <p class="section-description">Since this was a conceptual project, no real-world data exists yet. However, usability feedback showed:</p>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <p>Users found the app more approachable and fun compared to existing banks</p>
+        </div>
+        <div class="impact-card">
+          <p>Most testers found key flows (onboarding, transfer, savings) faster than with their current apps.</p>
+        </div>
+        <div class="impact-card">
+          <p>Strong interest in gamified savings features, which encouraged consistent use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Learnings Section -->
+  <section id="section-learnings" class="section">
+    <div class="container container-narrow">
+      <h2 class="section-title">Key Learnings</h2>
+      <ul class="learnings-list">
+        <li class="learning-item">Gen Z values simplicity and relatability as much as functionality</li>
+        <li class="learning-item">Gamification can make financial discipline more engaging</li>
+        <li class="learning-item">Biometric authentication significantly improves user experience</li>
+        <li class="learning-item">Nigerian cultural elements (like "ajo") can be digitized successfully to drive adoption.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="section-cta" class="section">
+    <div class="container">
+      <div class="cta-box">
+        <h3>Want to see more projects?</h3>
+        <div class="cta-buttons">
+          <a href="#all-projects" class="btn btn-outline">View All Projects</a>
+          <a href="#start-project" class="btn btn-primary cta-primary">
+            <span>Start a Project</span>
+            <img src="images/55_129.svg" alt="Arrow icon">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="section-footer" class="site-footer">
+    <p class="footer-credit">Tian Creative</p>
+  </footer>
+</body>
+</html>

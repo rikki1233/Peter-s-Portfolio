@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern E-commerce Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Italianno&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="global.css">
+  <style>
+    :root {
+      --color-primary: #0080ff;
+      --color-primary-light: #4299f0;
+      --color-text-dark: #1d2330;
+      --color-text-medium: #4c5567;
+      --color-text-light: #818898;
+      --color-text-placeholder: #9ca3af;
+      --color-white: #ffffff;
+      --color-bg-light: #f9fafb;
+      --color-bg-dark: #1f2c47;
+      --color-border: #edeff2;
+      --color-border-medium: #e2e4e9;
+      --color-border-dark: #dcdfe5;
+      --font-main: 'Inter', sans-serif;
+      --font-accent: 'Italianno', cursive;
+      --shadow-main: 0px 4px 12px 0px rgba(29, 35, 48, 0.08);
+      --gradient-primary: linear-gradient(135deg, #0080ff 0%, #4299f0 141.42%);
+      --gradient-section: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background-color: var(--color-white);
+      color: var(--color-text-medium);
+      line-height: 1.6;
+    }
+
+    .page-container {
+      max-width: 1248px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: var(--gradient-section);
+      padding: 40px 0 80px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 64px;
+      font-size: 16px;
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 16px 0;
+      color: var(--color-text-dark);
+    }
+
+    .hero-text .subtitle {
+      font-size: 20px;
+      color: var(--color-text-medium);
+      line-height: 1.6;
+      max-width: 540px;
+      margin-bottom: 24px;
+    }
+
+    .project-meta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--color-text-light);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px 32px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--gradient-primary);
+      color: var(--color-white);
+      box-shadow: 0px 4px 12px 0px rgba(29, 35, 48, 0.08);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 6px 16px 0px rgba(29, 35, 48, 0.12);
+    }
+
+    .hero-image-wrapper {
+      flex: 1;
+      max-width: 552px;
+      position: relative;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    /* Content Sections */
+    .content-section {
+      padding: 80px 0;
+    }
+
+    .content-block {
+      max-width: 832px;
+      margin: 0 auto;
+    }
+
+    .content-block h2 {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--color-text-dark);
+      margin: 0 0 24px 0;
+    }
+
+    .content-block p {
+      font-size: 18px;
+      color: var(--color-text-medium);
+      margin: 0 0 16px 0;
+    }
+
+    /* Challenge Section */
+    .challenge-box {
+      border-left: 2px solid var(--color-primary);
+      padding: 16px 24px;
+      font-size: 18px;
+      color: var(--color-text-medium);
+      margin-top: 24px;
+    }
+
+    .challenge-box p {
+      margin-bottom: 16px;
+    }
+
+    .challenge-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .challenge-box li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+    }
+
+    .challenge-box li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--color-primary);
+      font-weight: bold;
+    }
+
+    /* Design Process Section */
+    .process-steps {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .process-card {
+      background-color: var(--color-white);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0px 4px 12px 0px rgba(29, 35, 48, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--gradient-primary);
+      color: var(--color-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .card-header h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text-dark);
+      margin: 0;
+    }
+
+    .process-card p {
+      font-size: 16px;
+      color: var(--color-text-medium);
+      padding-left: 48px;
+      margin: 0;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-left: 48px;
+      margin-top: 8px;
+    }
+
+    .process-tag {
+      background-color: var(--color-bg-light);
+      color: var(--color-text-light);
+      font-size: 14px;
+      padding: 6px 12px;
+      border-radius: 9999px;
+    }
+
+    /* Impact Section */
+    .impact-grid {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .impact-card {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+    }
+
+    .impact-card p {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-text-dark);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Learnings Section */
+    .learnings-list {
+      margin-top: 32px;
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .learnings-list li {
+      font-size: 18px;
+      color: var(--color-text-medium);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .learnings-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-primary);
+      border-radius: 9999px;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 80px 0;
+    }
+
+    .cta-box {
+      background: var(--gradient-section);
+      border-radius: 16px;
+      padding: 48px 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .cta-box h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-text-dark);
+      margin: 0;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .btn-secondary {
+      background-color: var(--color-white);
+      border: 2px solid var(--color-primary);
+      color: var(--color-primary);
+      font-weight: 400;
+      padding: 10px 24px;
+    }
+
+    .btn-secondary:hover {
+      background-color: #f0f8ff;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 40px 0;
+    }
+
+    .footer-credit {
+      font-family: var(--font-accent);
+      font-size: 20px;
+      color: #a70b0b;
+      text-align: center;
+      margin: 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .hero-text {
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .back-link {
+        margin-bottom: 40px;
+      }
+      
+      .hero-text h1 {
+        font-size: 36px;
+      }
+      
+      .hero-text .subtitle {
+        font-size: 18px;
+      }
+      
+      .project-meta {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+      
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .content-section {
+        padding: 60px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="page-container">
+      <a href="index.html#projects" class="back-link">
+        <img src="images/57_62.svg" alt="Back arrow">
+        <span>Back to Projects</span>
+      </a>
+      <div class="hero-content">
+        <div class="hero-text">
+          <span class="tag">Website Design</span>
+          <h1>Modern E-commerce Platform</h1>
+          <p class="subtitle">Revolutionizing Mobile Banking with Security-First Design</p>
+          <div class="project-meta">
+            <div class="meta-item">
+              <img src="images/57_43.svg" alt="Calendar icon">
+              <span>1 month</span>
+            </div>
+            <div class="meta-item">
+              <img src="images/57_49.svg" alt="Users icon">
+              <span>1 Person</span>
+            </div>
+            <div class="meta-item">
+              <img src="images/57_55.svg" alt="Clock icon">
+              <span>2024</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary">
+            <span>View Project</span>
+            <img src="images/57_176.svg" alt="Arrow right">
+          </a>
+        </div>
+        <div class="hero-image-wrapper">
+          <img src="images/499c8bf91622498989affc2837ac658e714ed89c.png" alt="Modern E-commerce Platform screenshot" class="hero-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Overview Section -->
+  <section class="content-section">
+    <div class="page-container">
+      <div class="content-block">
+        <h2>Project Overview</h2>
+        <p>This project explored the design of an e-commerce platform for my streetwear brand, with a unique twist: a built-in thrift marketplace where fans can resell authentic pieces. The goal was to create not only a sleek online store but also a community-driven ecosystem that extends the life and value of each product.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Challenge Section -->
+  <section class="content-section">
+    <div class="page-container">
+      <div class="content-block">
+        <h2>The Challenge</h2>
+        <div class="challenge-box">
+          <p>Streetwear thrives on drops, scarcity, and resale value. Traditional online stores only focus on selling new items, missing out on the culture of reselling and community interaction. This gap creates:</p>
+          <ul>
+            <li>Missed opportunities for brand engagement.</li>
+            <li>Fragmented resale happening on external platforms.</li>
+            <li>Lost chances to reinforce exclusivity and hype.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Design Process Section -->
+  <section class="content-section">
+    <div class="page-container">
+      <div class="content-block">
+        <h2>Design Process</h2>
+        <div class="process-steps">
+          <article class="process-card">
+            <div class="card-header">
+              <div class="step-number">1</div>
+              <h3>Research</h3>
+            </div>
+            <p>I studied streetwear culture, resale platforms, and defined user personas.</p>
+            <div class="card-tags">
+              <span class="process-tag">User Personas</span>
+              <span class="process-tag">Journey Maps</span>
+              <span class="process-tag">Security Assessment</span>
+              <span class="process-tag">Competitive Analysis</span>
+            </div>
+          </article>
+          <article class="process-card">
+            <div class="card-header">
+              <div class="step-number">2</div>
+              <h3>Wireframing</h3>
+            </div>
+            <p>I mapped out flows for buying and reselling; sketched seller profiles and trust features.</p>
+            <div class="card-tags">
+              <span class="process-tag">User Flows</span>
+              <span class="process-tag">Wireframes</span>
+              <span class="process-tag">Security Flow Diagrams</span>
+              <span class="process-tag">Information Architecture</span>
+            </div>
+          </article>
+          <article class="process-card">
+            <div class="card-header">
+              <div class="step-number">3</div>
+              <h3>Prototyping & Testing</h3>
+            </div>
+            <p>Built wireframes in Figma and designed high-fidelity, streetwear-inspired visuals. Gathered peer feedback; simplified checkout and seller onboarding.</p>
+            <div class="card-tags">
+              <span class="process-tag">Interactive Prototypes</span>
+              <span class="process-tag">Usability Test Results</span>
+              <span class="process-tag">Design System</span>
+              <span class="process-tag">Security Guidelines</span>
+            </div>
+          </article>
+          <article class="process-card">
+            <div class="card-header">
+              <div class="step-number">4</div>
+              <h3>Final Design & Handoff</h3>
+            </div>
+            <p>Created a design system and documented both retail + thrift marketplace flows.</p>
+            <div class="card-tags">
+              <span class="process-tag">Final UI Designs</span>
+              <span class="process-tag">Developer Handoff</span>
+              <span class="process-tag">Security Documentation</span>
+              <span class="process-tag">Design Tokens</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Solution Section -->
+  <section class="content-section">
+    <div class="page-container">
+      <div class="content-block">
+        <h2>The Solution</h2>
+        <p>The new design features a clean, card-based interface with biometric authentication, simplified navigation, and real-time security indicators. We implemented a progressive disclosure pattern to reduce cognitive load while maintaining access to advanced features.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact & Results Section -->
+  <section class="content-section">
+    <div class="page-container">
+      <div class="content-block">
+        <h2>Impact & Results</h2>
+        <div class="impact-grid">
+          <div class="impact-card">
+            <p>Community-driven resale that lets buyers also sell, boosting engagement and loyalty</p>
+          </div>
+          <div class="impact-card">
+            <p>Sustainable fashion approach by extending product life through thrifts.</p>
+          </div>
+          <div class="impact-card">
+            <p>Simplified checkout flows that reduce friction for both buyers and sellers.</p>
+          </div>
+          <div class="impact-card">
+            <p>Increased brand value by creating hype around resale and exclusivity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Learnings Section -->
+  <section class="content-section">
+    <div class="page-container">
+      <div class="content-block">
+        <h2>Key Learnings</h2>
+        <ul class="learnings-list">
+          <li>Simplicity in flows (checkout, seller onboarding) is critical to adoption.</li>
+          <li>Visual hierarchy should always prioritize the product in fashion design.</li>
+          <li>Trust signals (ratings, reviews, escrow payments) are essential in resale marketplaces.</li>
+          <li>Clear visual hierarchy reduces user errors</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="page-container">
+      <div class="cta-box">
+        <h3>Want to see more projects?</h3>
+        <div class="cta-buttons">
+          <a href="#" class="btn btn-secondary">View All Projects</a>
+          <a href="#" class="btn btn-primary">
+            <span>Start a Project</span>
+            <img src="images/57_157.svg" alt="External link icon">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="page-container">
+      <p class="footer-credit">Tian Creative</p>
+    </div>
+  </footer>
+</body>
+</html>
